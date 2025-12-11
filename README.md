@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=PhD+Candidate+%40+University+of+Adelaide;Causal+AI+Researcher;Visual+Novel+Developer" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=36BCF7&center=true&vCenter=true&width=435&lines=PhD+Candidate+%40+Adelaide+University;Causal+AI+Researcher;" alt="Typing SVG" />
   </a>
 </p>
 
@@ -36,7 +36,7 @@ I am a **PhD Student in Computer Science** at the **Adelaide University**, Austr
 ### 📚 Featured Research
 | Project | Description | Tech |
 | :--- | :--- | :--- |
-| **ZCIA (Zero-Shot Causal Integrity Auditor)** | A framework for auditing causal models without extensive retraining, ensuring robustness in AI decision-making. | `Python` `PyTorch` |
+| **Zero-Shot Causal Integrity Auditor** | A framework for auditing causal models without extensive retraining, ensuring robustness in AI decision-making. | `Python` `PyTorch` |
 | **ISD-CP** | Implicit Structure Discovery for Causal Prediction. Uncovering hidden causal graphs in complex datasets. | `Transformers` `Causal AI` |
 
 ---
