@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Neural Network Banner" width="100%" />
+  <img src="assets/banner.png" alt="Neural Network Banner" />
 </p>
 
 <h1 align="center">Meisam Mahmoodi 🧠</h1>
