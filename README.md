@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9F7AEA&center=true&vCenter=true&width=500&lines=PhD+Candidate+%40+University+of+Adelaide;Mechanistic+Interpretability+Researcher;Causal+AI+%26+Concept+Representation;" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9F7AEA&center=true&vCenter=true&width=500&lines=PhD+Candidate+%40+Adelaide+University;Mechanistic+Interpretability+Researcher;Causal+AI+%26+Concept+Representation;" alt="Typing SVG" />
   </a>
 </p>
 
@@ -30,7 +30,7 @@
 
 ### 🧐 About Me
 
-I am a **Computer Science PhD Candidate** at the **University of Adelaide**, Australia, working within the **Causal AI Group** (AIML) under the supervision of **Prof. Javen Qinfeng Shi**. 
+I am a **Computer Science PhD Candidate** at the **Adelaide University**, Australia, working within the **Causal AI Group** (AIML) under the supervision of **Prof. Javen Qinfeng Shi**. 
 
 My research sits at the intersection of **Mechanistic Interpretability**, **Concept Component Analysis (ConCA)**, and **Causal AI**. I am dedicated to reverse-engineering deep neural networks to discover how high-level semantic concepts are represented and computed inside Large Language Models (LLMs). Rather than relying on simple token-level correlations, my work focuses on extracting, aligning, and steering robust, causally grounded latent concepts.
 
