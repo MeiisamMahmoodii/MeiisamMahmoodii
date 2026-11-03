@@ -6,12 +6,12 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9F7AEA&center=true&vCenter=true&width=500&lines=PhD+Candidate+%40+Adelaide+University;Mechanistic+Interpretability+Researcher;Causal+AI+%26+Concept+Representation;" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=9F7AEA&center=true&vCenter=true&width=520&lines=PhD+Candidate+%40+Adelaide+University;Interpretability+of+Language+Models;Sparse+Concepts+%26+Causal+Representations;" alt="Typing SVG" />
   </a>
 </p>
 
 <p align="center">
-  REVERSE-ENGINEERING LARGE LANGUAGE MODELS • EXTRACTING SEMANTIC CONCEPTS • CAUSAL AI
+  INTERPRETABILITY • SPARSE CONCEPT LEARNING • CAUSAL REPRESENTATION LEARNING
 </p>
 
 <p align="center">
@@ -30,42 +30,31 @@
 
 ### 🧐 About Me
 
-I am a **Computer Science PhD Candidate** at the **Adelaide University**, Australia, working within the **Causal AI Group** (AIML) under the supervision of **Prof. Javen Qinfeng Shi**. 
+I am a **Computer Science PhD candidate** at **Adelaide University**, Australia, in the **Causal AI Group** (AIML), supervised by **Prof. Javen Qinfeng Shi**.
 
-My research sits at the intersection of **Mechanistic Interpretability**, **Concept Component Analysis (ConCA)**, and **Causal AI**. I am dedicated to reverse-engineering deep neural networks to discover how high-level semantic concepts are represented and computed inside Large Language Models (LLMs). Rather than relying on simple token-level correlations, my work focuses on extracting, aligning, and steering robust, causally grounded latent concepts.
-
----
-
-### 🧠 Research Focus
-
-*   **Mechanistic Interpretability**: Decoding the internal activations, residual stream representations, and attention circuits of Transformer models to understand neural computation.
-*   **Concept Component Analysis (ConCA)**: Utilizing unsupervised linear unmixing and sparse priors (e.g., Sparse ConCA) as a theoretically grounded framework to extract human-interpretable concept log-posteriors from model weights.
-*   **Causal Representation Learning**: Building methods that bridge statistical correlation and causal mechanisms to enable robust cross-model transfer and targeted concept steering.
+I study what language models represent inside their activations. My main question is simple: when the same meaning is written in different ways — a paraphrase, a simpler rewrite, another language — which part of the model's representation stays the same (**content**), and which part changes (**form / realization**)? I build sparse, concept-level methods (SAEs and **Concept Component Analysis, ConCA**) that separate these two parts and test them with causal interventions, not only with probes.
 
 ---
 
-### 🚀 Active Project: [SetConCA](https://github.com/MeiisamMahmoodii/SetConCA_v3) (Set-Constrained Concept Component Analysis)
+### 🚀 Current Project: [Multi-View ConCA](https://github.com/MeiisamMahmoodii/MVConCA)
 
-**SetConCA** (Set-Constrained Concept Component Analysis) is an interpretability framework designed to learn set-level sparse concept codes by training on semantic sets of paraphrases. By training on sets of sentences that share semantic meaning but differ lexically, the model learns to encode underlying concepts rather than overfitting to specific tokens.
+**Multi-View ConCA** learns one sparse concept dictionary with two parts:
 
-#### 🔧 Key Features & Pipeline
-1.  **Stricter Semantic-Set Construction**: Avoids lexical copying by banning keyword overlap and generating rewrites across multiple word-count bands using diverse LLMs (Llama, Gemma, Qwen).
-2.  **Scalable vLLM Multi-GPU Dataset Generation**: Automates multi-process and multi-GPU shard generation, merging attempts with validation checks.
-3.  **Cross-Model Activation Sweep Grid**: Sweeps residual streams of Llama 3, Gemma 3, and Qwen 3 at 20%, 60%, and 90% depth layers to extract multi-view activation banks.
-4.  **Transfer & Steering baselines**: Benchmarks trained spaces against standard Sparse Autoencoders (SAEs), evaluating representation transfer with Procrustes, Ridge, and MLP bridges, and testing activation-level concept steering.
+*   **C — content**: concepts that stay the same across matched views of one input.
+*   **S — realization**: concepts that capture *how* that input is expressed in each view.
 
-👉 Check out the active codebase at [SetConCA_v3](https://github.com/MeiisamMahmoodii/SetConCA_v3).
+*Example:* "wake me up at 7 am" in English, German, French and Spanish is four views of one request. The content part should give (almost) the same code for all four; the realization part should hold what differs between them.
+
+The model is trained only on activations plus which inputs belong together — no task labels. It is then tested on languages it never saw (Chinese, Arabic) and with **causal interventions**: changing the content coordinates should change what the model does, not just what a probe reads. *Paper in preparation.*
 
 ---
 
-### 📚 Publications & Archive
+### 📚 Earlier Work
 
-*   **Utilizing Large Language Models for DDoS Attack Detection** (2024)
-    *Meisam Mahmoodi* | *2024 OPJU International Technology Conference (OTCON)*
-    *   Introduces a framework converting network traffic features into semantic natural language descriptions, allowing LLMs to identify DDoS threats via zero-shot reasoning and parameter-efficient fine-tuning.
-    *   [Google Scholar Citation Link](https://scholar.google.com/citations?hl=en&user=IOXPIqEAAAAJ)
+*   **SetConCA** — set-conditioned sparse concept learning: extends pointwise SAEs by learning concept codes from *sets* of related views (paraphrases, multiple captioning models) instead of single sentences.
+*   **Utilizing Large Language Models for DDoS Attack Detection** (2024) — *M. Mahmoodi*, OPJU International Technology Conference (OTCON). Turns network traffic features into natural-language descriptions so LLMs can detect DDoS attacks with zero-shot reasoning and parameter-efficient fine-tuning.
 
-*   *Archived Work*: Prior-Data Fitted Networks (TabPFN), Implicit Structure Discovery for Causal Prediction (ISD-CP), and Zero-Shot Causal Integrity Auditing frameworks.
+📄 Full list on [Google Scholar](https://scholar.google.com/citations?hl=en&user=IOXPIqEAAAAJ).
 
 ---
 
