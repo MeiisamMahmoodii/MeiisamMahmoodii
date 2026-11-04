@@ -30,40 +30,40 @@
 
 ### 🧐 About Me
 
-I am a **Computer Science PhD candidate** at **Adelaide University**, Australia, in the **Causal AI Group** (AIML), supervised by **Prof. Javen Qinfeng Shi**.
-
-I study what language models represent inside their activations. My main question is simple: when the same meaning is written in different ways — a paraphrase, a simpler rewrite, another language — which part of the model's representation stays the same (**content**), and which part changes (**form / realization**)? I build sparse, concept-level methods (SAEs and **Concept Component Analysis, ConCA**) that separate these two parts and test them with causal interventions, not only with probes.
+I am a **Computer Science PhD candidate** at **Adelaide University**, Australia, in the **Causal AI Group** (AIML), supervised by **Prof. Javen Qinfeng Shi**. I work on **interpretability of language models**: understanding what a model has learned inside its activations, and using that understanding to **control** it.
 
 ---
 
-### 🚀 Current Project: [Multi-View ConCA](https://github.com/MeiisamMahmoodii/MVConCA)
+### 🔬 Research Area
 
-**The problem.** Sparse autoencoders (SAEs) find features that *detect* things in a model's activations, but pushing one of those features often doesn't *control* the model cleanly. Ask for "blue" and the shape or material changes too, or nothing changes at all. One reason: an SAE rebuilds each activation on its own, so nothing tells it to keep **what is said** (the facts) apart from **how it is said** (the wording).
+**The big question.** A language model's hidden state mixes two kinds of information:
 
-**What Multi-View ConCA does.** It extends Concept Component Analysis (ConCA) by splitting the learned code into two blocks:
+*   **What is said** — the content, the facts, the meaning.
+*   **How it is said** — the wording, style, format or language.
 
-*   **C — content**: the facts.
-*   **S — style**: the wording.
+*Example:* "a small red metal cube", "a little cube made of red metal" and `{"object": "cube", "colour": "red"}` all say the same thing. Inside the model, part of the representation should stay the same across all three (content) and part should change (wording). I study how to find and separate these two parts.
 
-It learns this split from two kinds of paired examples:
+**Why it matters.** Tools like sparse autoencoders (SAEs) can find features that *detect* a concept, but editing those features often doesn't *control* the model cleanly. Ask for "blue" and the shape changes too, or nothing changes at all. If content and wording are separated, we can:
 
-| Pair type | Example | What the training does |
-|---|---|---|
-| **Paraphrase** — same facts, new wording | "a small red metal cube" ↔ `{"object": "cube", "colour": "red", …}` | pull the two **C** codes together |
-| **Minimal edit** — one fact changes, same wording | "a small **red** metal cube" ↔ "a small **blue** metal cube" | keep **S** fixed, so only **C** moves |
+*   **Edit one fact** and leave everything else alone (red → blue, nothing else moves).
+*   **Get the same answer however the question is phrased**, across paraphrases, styles and languages.
+*   **Spot the same intent behind different surface forms**, e.g. a harmful request hidden behind unusual wording.
 
-**The result.** Push a *single* content coordinate and the model's answer changes only the fact you targeted:
+**How I approach it.**
 
-> "small red metal cube" → push the colour coordinate → "small **blue** metal cube" ✓ (shape, size and material unchanged)
+1.  **Learn from paired views, not single examples.** Paraphrases, rewrites and translations show what should stay fixed; minimal edits ("red cube" vs "blue cube") show what a single fact change looks like. These pairs give a weak supervision signal without needing concept labels.
+2.  **Sparse, concept-level dictionaries.** Methods built on SAEs and **Concept Component Analysis (ConCA)**, so that each concept lives in a small number of readable coordinates.
+3.  **Causal tests, not just probes.** A feature counts only if changing it changes the model's behaviour in the expected way — and nothing else.
 
-On scenes and wording styles never seen in training, one-coordinate edits change the target answer while keeping all the other answers correct in **64.4%** of cases. The best SAE baseline gets **31.5%**, so this is about twice as good. The edits also steer free-form generation and work on models from different families. *Paper in preparation.*
+I am also starting to apply these ideas to **AI agents**: reading what goal an agent is actually pursuing from its internal state.
 
 ---
 
-### 📚 Earlier Work
+### 📚 Selected Work
 
-*   **SetConCA** — set-conditioned sparse concept learning: extends pointwise SAEs by learning concept codes from *sets* of related views (paraphrases, multiple captioning models) instead of single sentences.
-*   **Utilizing Large Language Models for DDoS Attack Detection** (2024) — *M. Mahmoodi*, OPJU International Technology Conference (OTCON). Turns network traffic features into natural-language descriptions so LLMs can detect DDoS attacks with zero-shot reasoning and parameter-efficient fine-tuning.
+*   **[Multi-View ConCA](https://github.com/MeiisamMahmoodii/MVConCA)** — splitting a concept dictionary into content and wording blocks, so a single coordinate can change one fact in the model's answer. *(in preparation)*
+*   **SetConCA** — learning concept codes from *sets* of related views (e.g. paraphrases) instead of single sentences.
+*   **Utilizing Large Language Models for DDoS Attack Detection** (2024) — *M. Mahmoodi*, OPJU International Technology Conference (OTCON).
 
 📄 Full list on [Google Scholar](https://scholar.google.com/citations?hl=en&user=IOXPIqEAAAAJ).
 
