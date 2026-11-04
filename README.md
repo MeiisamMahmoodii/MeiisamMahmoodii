@@ -38,14 +38,25 @@ I study what language models represent inside their activations. My main questio
 
 ### 🚀 Current Project: [Multi-View ConCA](https://github.com/MeiisamMahmoodii/MVConCA)
 
-**Multi-View ConCA** learns one sparse concept dictionary with two parts:
+**The problem.** Sparse autoencoders (SAEs) find features that *detect* things in a model's activations, but pushing one of those features often doesn't *control* the model cleanly. Ask for "blue" and the shape or material changes too, or nothing changes at all. One reason: an SAE rebuilds each activation on its own, so nothing tells it to keep **what is said** (the facts) apart from **how it is said** (the wording).
 
-*   **C — content**: concepts that stay the same across matched views of one input.
-*   **S — realization**: concepts that capture *how* that input is expressed in each view.
+**What Multi-View ConCA does.** It extends Concept Component Analysis (ConCA) by splitting the learned code into two blocks:
 
-*Example:* "wake me up at 7 am" in English, German, French and Spanish is four views of one request. The content part should give (almost) the same code for all four; the realization part should hold what differs between them.
+*   **C — content**: the facts.
+*   **S — style**: the wording.
 
-The model is trained only on activations plus which inputs belong together — no task labels. It is then tested on languages it never saw (Chinese, Arabic) and with **causal interventions**: changing the content coordinates should change what the model does, not just what a probe reads. *Paper in preparation.*
+It learns this split from two kinds of paired examples:
+
+| Pair type | Example | What the training does |
+|---|---|---|
+| **Paraphrase** — same facts, new wording | "a small red metal cube" ↔ `{"object": "cube", "colour": "red", …}` | pull the two **C** codes together |
+| **Minimal edit** — one fact changes, same wording | "a small **red** metal cube" ↔ "a small **blue** metal cube" | keep **S** fixed, so only **C** moves |
+
+**The result.** Push a *single* content coordinate and the model's answer changes only the fact you targeted:
+
+> "small red metal cube" → push the colour coordinate → "small **blue** metal cube" ✓ (shape, size and material unchanged)
+
+On scenes and wording styles never seen in training, one-coordinate edits change the target answer while keeping all the other answers correct in **64.4%** of cases. The best SAE baseline gets **31.5%**, so this is about twice as good. The edits also steer free-form generation and work on models from different families. *Paper in preparation.*
 
 ---
 
